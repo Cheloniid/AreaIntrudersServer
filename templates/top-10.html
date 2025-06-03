@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Area Intruders Top 10</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <h1 class="mb-4">Area Intruders Top 10</h1>
+        <table class="table table-striped table-bordered table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Nick</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                <tr>
+                    <td>{{ log.no }}</td>
+                    <td>{{ log.nick }}</td>
+                    <td>{{ log.score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
