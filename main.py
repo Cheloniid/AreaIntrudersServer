@@ -44,8 +44,13 @@ def home():
 
 
 @app.route("/get-top-10", methods=['GET'])
-def show_top_10():
-    return ""
+def get_top_10():
+    existing_log = read_log_file()
+    existing_log = sorted(existing_log, key=lambda x: x["score"], reverse=True)
+    existing_log = [f"{i + 1};{entry['score']};{entry['nick']}"
+                    for i, entry in enumerate(existing_log) if i < 10]
+    print(existing_log)
+    return existing_log
 
 
 @app.route("/upload", methods=['POST'])
