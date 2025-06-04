@@ -36,9 +36,15 @@ def append_json_to_file(score):
 
 @app.route("/")
 def home():
+    return render_template("index.html")
+
+
+@app.route("/top-scores")
+def top_scores():
     existing_log = read_log_file()
     existing_log = sorted(existing_log, key=lambda x: x["score"], reverse=True)
-    existing_log = [{"no": i + 1, "score": entry["score"], "nick": entry["nick"]} for i, entry in enumerate(existing_log)]
+    existing_log = [{"no": i + 1, "score": entry["score"], "nick": entry["nick"]}
+                    for i, entry in enumerate(existing_log)]
 
     return render_template("top-10.html", logs=existing_log)
 
@@ -48,9 +54,27 @@ def get_top_10():
     existing_log = read_log_file()
     existing_log = sorted(existing_log, key=lambda x: x["score"], reverse=True)
     existing_log = [f"{i + 1};{entry['score']};{entry['nick']}"
-                    for i, entry in enumerate(existing_log) if i < 10]
+                    for i, entry in enumerate(existing_log) if i < 50]
     print(existing_log)
     return existing_log
+
+
+@app.route("/show-logs", methods=['POST'])
+def show_logs():
+    secret = request.form.get("secret")
+    if secret != "90457ghoaHJLVBSJFdfnb79q35y4terv24875gq0rnvb":
+        return "Unauthorized", 401
+
+    existing_log = read_log_file()
+    existing_log = sorted(existing_log, key=lambda x: x["date"], reverse=True)
+
+    return render_template("logs.html", logs=existing_log)
+
+
+@app.route("/download", methods=['GET'])
+def download():
+
+    return render_template("download.html")
 
 
 @app.route("/upload", methods=['POST'])
@@ -77,18 +101,6 @@ def upload():
     append_json_to_file(data)
     print(data)
     return jsonify({"status": "OK"}), 200
-
-
-@app.route("/show-logs", methods=['POST'])
-def show_logs():
-    secret = request.form.get("secret")
-    if secret != "90457ghoaHJLVBSJFdfnb79q35y4terv24875gq0rnvb":
-        return "Unauthorized", 401
-
-    existing_log = read_log_file()
-    existing_log = sorted(existing_log, key=lambda x: x["date"], reverse=True)
-
-    return render_template("logs.html", logs=existing_log)
 
 
 def main():

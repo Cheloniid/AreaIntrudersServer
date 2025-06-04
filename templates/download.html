@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Download - Area Intruders{% endblock %}
+
+{% block content %}
+    <div class="container mt-5 text-center">
+        <h2 class="mb-4">Download Area Intruders</h2>
+        <p>Download <code>.jar</code> if you have Java installed. Otherwise download the <code>.zip</code> with an <code>.exe</code> launcher.</p>
+        <a class="btn btn-primary m-2" href="/static/AreaIntruders.jar" download>📦 .JAR</a>
+        <a class="btn btn-secondary m-2" href="/static/AreaIntruders.zip" download>🪟 .ZIP for Windows</a>
+    </div>
+{% endblock %}

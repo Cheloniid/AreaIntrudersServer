@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Start - Area Intruders{% endblock %}
+
+{% block content %}
+    <div class="container mt-5 text-center">
+        <img src="{{ url_for('static', filename='img/UFO_name_70.png') }}" alt="Area Intruders" class="game-image mb-4">
+        <div>
+            <a href="{{ url_for('top_scores') }}" class="btn btn-primary btn-lg m-2">🏆 Top Scores</a>
+            <a href="{{ url_for('download') }}" class="btn btn-secondary btn-lg m-2">⬇️ Download</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,74 @@
+<style>
+  body {
+    background-color: #4635B1; !important/* GAME_PANEL_BACKGROUND */
+    color: #FFFBCA; /* UFO_WINDOW_COLOR jako tekst */
+  }
+
+  .navbar {
+    background-color: #B771E5; /* UFO_COLOR */
+  }
+
+  .btn-primary {
+    background-color: #AEEA94; /* PLAYER_COLOR */
+    border-color: #AEEA94;
+    color: #4635B1; /* kontrastujący tekst */
+  }
+  .btn-primary:hover, .btn-primary:focus {
+    background-color: #93d071;
+    border-color: #93d071;
+    color: #4635B1;
+  }
+
+  .btn-secondary {
+    background-color: #B771E5; /* UFO_COLOR */
+    border-color: #B771E5;
+    color: #FFFBCA; /* UFO_WINDOW_COLOR */
+  }
+  .btn-secondary:hover, .btn-secondary:focus {
+    background-color: #9c5acb;
+    border-color: #9c5acb;
+    color: #FFFBCA;
+  }
+
+  a.nav-link {
+    color: #FFFBCA !important;
+  }
+  a.nav-link.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .container {
+    /* opcjonalnie można dodać lekki efekt */
+    background-color: rgba(255, 251, 202, 0.1); /* bardzo delikatne UFO_WINDOW_COLOR */
+    padding: 2rem;
+    border-radius: 10px;
+  }
+
+  /* Obrazek - może mieć lekką ramkę */
+  .game-image {
+    border: 2px solid #AEEA94;
+    border-radius: 8px;
+  }
+
+    .table {
+        background-color: rgb(70, 53, 177) !important;
+        color: white !important;
+    }
+
+    .table th {
+        background-color: rgba(255, 251, 202, 0.2) !important;
+        color: white !important;
+    }
+
+    .table td {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        color: white !important;
+    }
+
+    .table-striped > tbody > tr:nth-of-type(odd) > td {
+        background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+
+</style>
