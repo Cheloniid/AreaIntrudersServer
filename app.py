@@ -1,9 +1,12 @@
 import json
 from prettytable import PrettyTable
 from flask import Flask, request, jsonify, render_template
+import hashlib
 
-LOGS_PASSWORD = "90457ghoaHJLVBSJFdfnb79q35y4terv24875gq0rnvb"
 app = Flask(__name__)
+
+
+HASHED_PASSWORD = "68027bd1e8abe9f3654adc2ec00a38892bd3815ca5289eede6fc2d888d4e8d45"
 
 
 def generate_secret_code(nickname, score, date):
@@ -62,7 +65,11 @@ def get_top_10():
 @app.route("/show-logs", methods=['POST'])
 def show_logs():
     secret = request.form.get("secret")
-    if secret != "90457ghoaHJLVBSJFdfnb79q35y4terv24875gq0rnvb":
+    hashed_secret = hashlib.sha256(secret.encode()).hexdigest()
+    print(hashed_secret)
+    print(HASHED_PASSWORD)
+
+    if hashed_secret != HASHED_PASSWORD:
         return "Unauthorized", 401
 
     existing_log = read_log_file()

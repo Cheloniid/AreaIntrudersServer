@@ -1,0 +1,28 @@
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+python -m flask –-app my_app  run -–port 1337 --host=0.0.0.0
+source venv/bin/activate
+deactivate
+venv\Scripts\activate na windows
+
+
+tmux new -s area_intruders
+source venv/bin/activate
+python -m flask --app app run --host=0.0.0.0 --port=1337
+
+
+tmux attach -t area_intruders
+exit
+
+tmux ls
+Cel	Skrót
+Nowa sesja	tmux new -s nazwasesji
+Odłączenie	Ctrl + B, potem D
+Powrót	tmux attach -t nazwasesji
+Nowe okno w sesji	Ctrl + B, potem C
+Zmiana okna	Ctrl + B, potem numer lub W
+Split (poziomo/pionowo)	Ctrl + B, potem " lub %
+Przełącz panel	Ctrl + B, potem strzałka
+Lista sesji	tmux ls
+Zakończ sesję	exit lub :kill-session
