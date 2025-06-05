@@ -47,7 +47,7 @@ def top_scores():
     existing_log = read_log_file()
     existing_log = sorted(existing_log, key=lambda x: x["score"], reverse=True)
     existing_log = [{"no": i + 1, "score": entry["score"], "nick": entry["nick"]}
-                    for i, entry in enumerate(existing_log)]
+                    for i, entry in enumerate(existing_log) if i < 25 and entry["score"] > 0]
 
     return render_template("top-10.html", logs=existing_log)
 
@@ -57,7 +57,7 @@ def get_top_10():
     existing_log = read_log_file()
     existing_log = sorted(existing_log, key=lambda x: x["score"], reverse=True)
     existing_log = [f"{i + 1};{entry['score']};{entry['nick']}"
-                    for i, entry in enumerate(existing_log) if i < 50]
+                    for i, entry in enumerate(existing_log) if i < 25]
     print(existing_log)
     return existing_log
 

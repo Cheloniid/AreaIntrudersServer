@@ -1,5 +1,7 @@
-pip freeze > requirements.txt
+jpackage --type app-image --name "Area_Intruders" --input jar/ --main-jar Area_Intruders.jar --main-class Main --dest Area_Intruders_Executable
 pip install -r requirements.txt
+
+scp file.txt username@192.168.1.2:/home/username/
 
 python -m flask –-app my_app  run -–port 1337 --host=0.0.0.0
 source venv/bin/activate
