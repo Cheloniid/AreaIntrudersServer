@@ -2,3 +2,5 @@ venv
 scores_log.json
 *.jar
 *.zip
+__pycache__
+scores_log_from_dev.json
