@@ -57,7 +57,7 @@ def get_top_10():
     existing_log = read_log_file()
     existing_log = sorted(existing_log, key=lambda x: x["score"], reverse=True)
     existing_log = [f"{i + 1};{entry['score']};{entry['nick']}"
-                    for i, entry in enumerate(existing_log) if i < 25]
+                    for i, entry in enumerate(existing_log) if i < 25 and entry["score"] > 0]
     print(existing_log)
     return existing_log
 
