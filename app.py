@@ -6,7 +6,7 @@ import hashlib
 app = Flask(__name__)
 
 
-HASHED_PASSWORD = "68027bd1e8abe9f3654adc2ec00a38892bd3815ca5289eede6fc2d888d4e8d45"
+HASHED_PASSWORD = "8c5adf3ed14bc4083e6b4e805913922b7c5e728cf3baa6f2753cacbcc2249cd2"
 
 
 def generate_secret_code(nickname, score, date):
